@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Segoe UI', 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: #f9f2e7
+}
+
+a{
+    text-decoration: none;
+    color: #b88f0b;
+}
+
+.libros-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 30%;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fffbeb;
+    border: 1px solid #d6a07e;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.libros-form form input{
+    font-family: 'Segoe UI', sans-serif;
+    padding: 8px;
+    border: 1px solid #d6a07e;
+    border-radius: 4px;
+    outline: none;
+    transition: .3s;
+}
+
+.libros-form form input[type=text]:focus,
+.libros-form form input[type=password]:focus,
+.libros-form form input[type=email]focus{
+    border-color: #b88f0b;
+    box-shadow: 0 0 6 px #b88f0b;
+}
+
+.libros-form form input[type=submit]{
+    border: none;
+    padding: 12px 50px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #b88f0b; 
+    color: white; 
+    
+}
+
+.libros-form form input[type=submit]:hover {
+    background-color: #d6a07e;
+    color: #fff;
+}
+
+.libros-table table{
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr {
+    background-color: #fffbeb;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th{
+    padding: 16px;
+    text-align: center;
+    font-size: .85em;
+    color: #b88f0b
+}
+
+.libros-table--edit{
+    background: #1eb132;
+    padding: 6px 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.libros-table--delete{
+    background: #df4e2a;
+    padding: 6px 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+}
