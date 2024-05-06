@@ -36,13 +36,14 @@ $query = mysqli_query($con, $sql);
 
     <div class="libros-table">
         <h2>Ranking</h2>
+        <h3><a href="masinfo.php"></a>Mostrar más información de los registros</h3>
         <table>
             <thead>
                 <tr>
-                    <th>id</th>
+                    <!--<th>id</th>-->
                     <th>titulo</th>
-                    <th>autor</th>
-                    <th>tematica</th>
+                    <!--<th>autor</th>
+                    <th>tematica</th>-->
                     <th></th>
                     <th></th>
                 </tr>
@@ -50,10 +51,10 @@ $query = mysqli_query($con, $sql);
             <tbody>
                 <?php while ($row = mysqli_fetch_array($query)): ?>
                     <tr>
-                        <th><?= $row['id'] ?></th>
+                        <!--<th><?= $row['id'] ?></th>-->
                         <th><?= $row['titulo'] ?></th>
-                        <th><?= $row['autor'] ?></th>
-                        <th><?= $row['tematica'] ?></th>
+                        <!--<th><?= $row['autor'] ?></th>
+                        <th><?= $row['tematica'] ?></th>-->
                         <th><a href="Funciones/update.php?id=<?= $row['id'] ?>" class="libros-table--edit">Editar</a></th>
                         <th><a href="Funciones/eliminar_libros.php?id=<?= $row['id'] ?>" onclick="return confir_eliminar()" class="libros-table--delete" >Eliminar</a></th>
                     </tr>
