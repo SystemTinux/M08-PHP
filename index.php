@@ -1,7 +1,7 @@
 <?php
 ini_set("display_error", 1);
 error_reporting(E_ALL);
-include("Funciones/connection.php");
+include("config/connection.php");
 $con = connection();
 
 ini_set('display_errors', 1);
