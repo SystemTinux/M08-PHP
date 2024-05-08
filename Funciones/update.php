@@ -1,4 +1,7 @@
 <?php 
+/**
+ * en esta parte actualizamos 
+ */
 ini_set("display_error", 1);
 error_reporting(E_ALL);
     include("../config/connection.php");

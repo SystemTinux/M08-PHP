@@ -1,4 +1,7 @@
 <?php
+/**
+ * en este codigo insertamos libros
+ */
 // Habilitar el modo de depuración y mostrar todos los errores
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * En este apartado es la parte de eliminar
+ */
 include("../config/connection.php");
 $con = connection();
 

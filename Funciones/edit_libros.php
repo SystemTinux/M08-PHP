@@ -1,4 +1,8 @@
 <?php
+/**
+ * En esta parte es para editar libros, primer fem la conexió i despres fem una consulta en sql
+ * fem un if on retornem a la pagina principal.
+ */
 include("../config/connection.php");
  $con = connection();
 echo "grfdfhgdgxfh";
