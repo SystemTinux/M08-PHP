@@ -1,5 +1,11 @@
+function showAdminLogin() {
+    document.querySelector('.carousel-container').style.transform = 'translateX(0%)';
+}
 
+function showUserLogin() {
+    document.querySelector('.carousel-container').style.transform = 'translateX(-50%)';
+}
 
-
-function register
-https://www.youtube.com/watch?v=c3GoigQ5vRE&list=PLAFTVct4TDOa1HHObYNcGqRXsYTcCnfF4&index=1
+document.addEventListener('DOMContentLoaded', function() {
+    showUserLogin(); // Show user login by default
+});

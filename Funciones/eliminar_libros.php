@@ -1,33 +1,26 @@
 <?php
-/**
- * En este apartado es la parte de eliminar
- */
 include("../config/connection.php");
 $con = connection();
 
 $id = $_GET["id"];
 
-// Si se envía una solicitud POST desde el formulario de confirmación
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Si se confirma la eliminación
     if (isset($_POST["confirm"])) {
         $sql = "DELETE FROM biblioteca WHERE id='$id'";
         $query = mysqli_query($con, $sql);
         if ($query) {
-            header("Location: ../index.php");
-            exit(); // Detiene la ejecución del script después de redirigir
+            header("Location: ../Dashboard/user_dashboard.php");
+            exit();
         } else {
             echo "Error al eliminar el registro.";
         }
     } else {
-        // Si se cancela la eliminación
-        header("Location: ../index.php");
-        exit(); // Detiene la ejecución del script después de redirigir
+        header("Location: ../Dashboard/user_dashboard.php");
+        exit();
     }
 }
 ?>
 
-<!-- Página HTML con formulario de confirmación -->
 <!DOCTYPE html>
 <html>
 <head>

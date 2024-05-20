@@ -1,68 +1,53 @@
 <?php
-ini_set("display_error", 1);
-error_reporting(E_ALL);
-include("config/connection.php");
-$con = connection();
+session_start();
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
-
-$sql = "SELECT * FROM biblioteca";
-$query = mysqli_query($con, $sql);
+if (isset($_SESSION['loggedin'])) {
+    if ($_SESSION['es_admin']) {
+        header("location: Dashboard/admin_dashboard.php");
+    } else {
+        header("location: Dashboard/user_dashboard.php");
+    }
+    exit;
+}
 ?>
-<!DOCTYPE html>
-<html lang="es">
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/style.css" rel="stylesheet">
-    <title>Inicio</title>
-    <script src="javascript/script.js"></script>
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
-
 <body>
-    <div class="libros-form">
-        <h1>Inserta tus libros</h1>
-        <form action="Funciones/insert_libros.php" method="POST">
-            <input type="text" name="titulo" placeholder="Titulo">
-            <input type="text" name="autor" placeholder="Autor">
-            <input type="text" name="tematica" placeholder="Tematica">
-            <input type="submit" value="Agregar">
-        </form>
+    <header>
+        <h1>Biblioteca</h1>
+    </header>
+    <div class="contenedor__todo">
+        <div class="login-wrapper">
+            <div class="login-container admin-login" id="admin-login">
+                <h2>¿Eres Administrador?</h2>
+                <p>Inicia sesión para acceder al panel de administración</p>
+                <form action="Logguearse/login.php" method="post">
+                    <input type="text" name="username" placeholder="Nombre de usuario" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="hidden" name="role" value="admin">
+                    <input type="submit" value="Iniciar Sesión">
+                </form>
+            </div>
+        </div>
+        <div class="login-wrapper">
+            <div class="login-container user-login" id="user-login">
+                <h2>¿Eres Usuario?</h2>
+                <p>Inicia sesión para entrar en la página</p>
+                <form action="Logguearse/login.php" method="post">
+                    <input type="text" name="username" placeholder="Nombre de usuario" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="hidden" name="role" value="user">
+                    <input type="submit" value="Iniciar Sesión">
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="libros-table">
-        <h2>Ranking</h2>
-        <h3><a href="masinfo.php"></a>Mostrar más información de los registros</h3>
-        <table>
-            <thead>
-                <tr>
-                    <!--<th>id</th>-->
-                    <th>titulo</th>
-                    <!--<th>autor</th>
-                    <th>tematica</th>-->
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = mysqli_fetch_array($query)): ?>
-                    <tr>
-                        <!--<th><?= $row['id'] ?></th>-->
-                        <th><?= $row['titulo'] ?></th>
-                        <!--<th><?= $row['autor'] ?></th>
-                        <th><?= $row['tematica'] ?></th>-->
-                        <th><a href="Funciones/update.php?id=<?= $row['id'] ?>" class="libros-table--edit">Editar</a></th>
-                        <th><a href="Funciones/eliminar_libros.php?id=<?= $row['id'] ?>" onclick="return confir_eliminar()" class="libros-table--delete" >Eliminar</a></th>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    </div>
-
 </body>
-
 </html>

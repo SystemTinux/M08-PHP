@@ -1,29 +1,22 @@
 <?php
-/**
- * en este codigo insertamos libros
- */
-// Habilitar el modo de depuración y mostrar todos los errores
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-include("../config/connection.php");
+include '../config/connection.php';
 $con = connection();
-
 
 $titulo = $_POST['titulo'];
 $autor = $_POST['autor'];
 $tematica = $_POST['tematica'];
+$modificaUser = isset($_POST['modificaUser']) ? $_POST['modificaUser'] : NULL; // Permitir valores nulos
 
+$sql = "INSERT INTO biblioteca (titulo, autor, tematica, modificaUser) VALUES (?, ?, ?, ?)";
+$stmt = $con->prepare($sql);
+$stmt->bind_param('sssi', $titulo, $autor, $tematica, $modificaUser);
 
-
-$sql = "INSERT INTO biblioteca VALUES(null, '$titulo','$autor','$tematica')";
-$query = mysqli_query($con, $sql);
-
-if($query){
-    Header("Location: ../index.php");
-}else{
-    echo "Error inserting book: " . mysqli_error($con);
+if ($stmt->execute()) {
+    header("Location: ../Dashboard/user_dashboard.php");
+} else {
+    echo "Error al insertar el libro: " . $stmt->error;
 }
 
+$stmt->close();
+$con->close();
 ?>

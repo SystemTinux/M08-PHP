@@ -1,218 +1,241 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: sans-serif;
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  background-image: url('../Imag/llibre.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-body{
-    background-image: url(../Imag/llibre.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+/* Header */
+header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #eee;
 }
 
-main{
-    width: 100%;
-    padding: 20px;
-    margin: auto;
-    margin-top: 100px;
+header h2, header h1 {
+  margin: 0 0 10px 0;
 }
 
-.contenedor__todo{
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    position: relative;
+header form {
+  display: inline-block;
+  margin-right: 10px;
 }
 
-.caja__trasera{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    background-color: #ac5d14;
+/* Containers */
+.contenedor__todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.caja__trasera div{
-    margin: 100px 40px;
-    color: white;
-    transition: all 500ms;
-}
-.caja__trasera div h3 p,
-.caja__trasera div button{
-    margin-top: 30px;
-}
-
-.caja__trasera div h3{
-    font-weight: 400;
-    font-size: 26px;
+/* Login Wrapper */
+.login-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid #ccc;
 }
 
-.caja__trasera button{
-    padding: 10px 40px;
-    border: 2px solid white;
-    background: transparent;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-    transition: all 300ms;
+/* Login Container */
+.login-container {
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: left;
 }
 
-.caja__trasera button:hover{
-    background: #fff;
-    color: #d6a07e;
+.login-container.admin-login {
+  background: rgba(255, 140, 0, 0.9);
 }
 
-/*formularios*/
-.contenedor__login{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 300px;
-    position: relative;
-    top: -185px;
-    left: 10px;
+.login-container.user-login {
+  background: rgba(255, 215, 0, 0.9);
 }
 
-.contenedor__login form{
-    width: 100%;
-    padding: 80px 20px;
-    background: #fff;
-    position: absolute;
-    border-radius: 20px;
+.login-container h2 {
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-.contenedor__login form h2{
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #df4e2a;
+.login-container p {
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-.contenedor__login form input{
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    background: #f2f2f2;
-    font-size: 16px;
-    outline: none;
+/* Input Forms */
+input[type="text"], input[type="password"] {
+  outline: none;
+  padding: 10px;
+  display: block;
+  width: calc(100% - 20px);
+  border-radius: 3px;
+  border: 1px solid #eee;
+  margin: 10px auto;
+  box-sizing: border-box;
 }
 
-.contenedor__login form button{
-    padding: 10px 40px;
-    margin-top: 40px;
-    border: none;
-    font-size: 14px;
-    background: #ac5d14;
-    color: white;
-    cursor: pointer;
-    outline: none;
+input[type="submit"] {
+  padding: 10px;
+  color: #fff;
+  background: #0098cb;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  margin-top: 0;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
-.formulario__admin{
-    op
+input[type="submit"]:hover {
+  background-color: #00b8eb;
 }
 
-
-html {
-    font-family: 'Segoe UI', 'Courier New', Courier, monospace;
-    text-align: center;
-    background-color: #f9f2e7
+/* Dashboard Admin y Usuario */
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
 }
 
-a{
-    text-decoration: none;
-    color: #b88f0b;
+.dashboard-box {
+  background: rgba(255, 165, 0, 0.9); /* Fondo anaranjado */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid #ccc;
 }
 
-.libros-form form{
-    display: flex;
+.dashboard-box h1 {
+  color: #fff;
+}
+
+.dashboard-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-box input[type="text"],
+.dashboard-box input[type="password"] {
+  outline: none;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border-radius: 3px;
+  border: 1px solid #eee;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.dashboard-box input[type="submit"] {
+  padding: 10px;
+  color: #fff;
+  background: #0098cb;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  margin-top: 0;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.dashboard-box input[type="submit"]:hover {
+  background-color: #00b8eb;
+}
+
+/* Tabla de Libros */
+.dashboard-box.libros-table-box {
+  background: rgba(255, 140, 0, 0.9); /* Fondo anaranjado */
+}
+
+.libros-table-box table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco */
+  margin-top: 20px;
+}
+
+.libros-table-box th, .libros-table-box td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.libros-table-box th {
+  background: #0098cb;
+  color: #fff;
+}
+
+.libros-table-box td {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.libros-table--edit, .libros-table--delete {
+  color: #0098cb;
+  text-decoration: none;
+}
+
+.libros-table--edit:hover, .libros-table--delete:hover {
+  text-decoration: underline;
+}
+
+.libros-table--delete {
+  color: #ff0000;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .contenedor__todo,
+  .dashboard-container {
     flex-direction: column;
-    gap: 24px;
-    width: 30%;
-    margin: 20px auto;
-    text-align: center;
-    background-color: #fffbeb;
-    border: 1px solid #d6a07e;
-    border-radius: 5px;
+  }
+
+  .login-wrapper,
+  .dashboard-box {
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    margin: 10px;
+  }
 
-.libros-form form input{
-    font-family: 'Segoe UI', sans-serif;
-    padding: 8px;
-    border: 1px solid #d6a07e;
-    border-radius: 4px;
-    outline: none;
-    transition: .3s;
-}
-
-.libros-form form input[type=text]:focus,
-.libros-form form input[type=password]:focus,
-.libros-form form input[type=email]focus{
-    border-color: #b88f0b;
-    box-shadow: 0 0 6 px #b88f0b;
-}
-
-.libros-form form input[type=submit]{
-    border: none;
-    padding: 12px 50px;
-    text-decoration: none;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #b88f0b; 
-    color: white; 
-    
-}
-
-.libros-form form input[type=submit]:hover {
-    background-color: #d6a07e;
-    color: #fff;
-}
-
-.libros-table table{
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
-}
-
-table tr {
-    background-color: #fffbeb;
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-table th{
-    padding: 16px;
-    text-align: center;
-    font-size: .85em;
-    color: #b88f0b
-}
-
-.libros-table--edit{
-    background: #1eb132;
-    padding: 6px 12px;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 4px;
-}
-.libros-table--delete{
-    background: #df4e2a;
-    padding: 6px 12px;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 4px;
+  .login-wrapper input[type="text"],
+  .login-wrapper input[type="password"],
+  .login-wrapper input[type="submit"],
+  .dashboard-box input[type="text"],
+  .dashboard-box input[type="password"],
+  .dashboard-box input[type="submit"] {
+    width: calc(100% - 40px);
+  }
 }
